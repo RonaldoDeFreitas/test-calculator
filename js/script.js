@@ -42,30 +42,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function checkResult() {
     try{
-      console.log(screen.value);
-      var calculatedValue = eval(screen.value)
+      var calculatedValue = screen.value;
+      calculatedValue = calculatedValue.split(" ");
+      calculatedValue.splice(-1,1);
+
       console.log(calculatedValue);
-      if (calculatedValue || calculatedValue == "0") {
-        screen.value = calculatedValue;
-      } else {
-        throw "erro";
-      }
+      var total = 0;
+      var eq = null;
+      calculatedLen = calculatedValue.length;
+      calculatedValue.map(function(value, index){
+
+        if(checkOperator === false && eq === null) {
+          var calc = total + "+" + value;
+          total = eval(calc);
+        }else if(
+          checkOperator !== false &&
+          (
+            checkOperator !== "exp" &&
+            checkOperator !== "raiz" &&
+            checkOperator !== "percent"
+          )
+        ){
+          console.log(total + eq + value)
+          total = eval(total + eq + value);
+          eq = null;
+        }else if(eq === null) {
+          eq = value;
+        }else{
+          if(eq === 'exp') Math.pow(total, value);
+        }
+
+        if(calculatedLen === (index-1)) {
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          }
+        }
+
+      })
+
     } catch (e) {
       console.error(e);
     }
   }
 
-  //
   function valueScreen(){
     if (checkOperator(this.value)) {
-      console.log('operador', this.value);
       var aux = screen.value.substring(screen.value.length - 1, screen.value.length);
       if (checkOperator(aux)) {
         deletePrevious()
       }
     }
     if (this.value) {
-      screen.value += this.value;
+      screen.value += this.value + ' ';
     }
   }
 
@@ -87,21 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
   function checkOperator(value){
     switch (value) {
       case "+":
-        return true;
+        return "+";
       case "-":
-        return true;
+        return "-";
       case "*":
-        return true;
+        return "*";
       case "/":
-        return true;
-      case "x²":
-        return true;
+        return "/";
+      case "^":
+        return "exp";
       case "√":
-        return true;
+        return "raiz";
       case "%":
-        return true;
+        return "percent";
 
       default:
+        return false;
 
     }
   }
