@@ -41,24 +41,96 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkResult() {
-    try{
-      console.log(screen.value);
-      var calculatedValue = eval(screen.value)
-      console.log(calculatedValue);
-      if (calculatedValue || calculatedValue == "0") {
-        screen.value = calculatedValue;
-      } else {
-        throw "erro";
+    switch (operador) {
+      case "+":
+        try{
+          var calculatedValue = eval(screen.value)
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          } else {
+            throw "erro";
+          }
+        } catch (e) {
+          console.error(e);
+        }
+        return true;
+      case "-":
+        try{
+          var calculatedValue = eval(screen.value)
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          } else {
+            throw "erro";
+          }
+        } catch (e) {
+          console.error(e);
+        }
+        return true;
+      case "*":
+        try{
+          var calculatedValue = eval(screen.value)
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          } else {
+            throw "erro";
+          }
+        } catch (e) {
+          console.error(e);
+        }
+        return true;
+      case "/":
+        try{
+          var calculatedValue = eval(screen.value)
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          } else {
+            throw "erro";
+          }
+        } catch (e) {
+          console.error(e);
+        }
+        return true;
+      case "^":
+      try{
+
+        var char = [];
+        
+        //Percorrendo o elemento e separando por CHAR
+        for (var i = 0 ; i < screen.value.length; i++){
+          var res = screen.value.charAt([i]);
+          char.push(res)
+        }
+        console.log(char);
+        for (var i = 0; i<char.length; i++){
+          if (char[i] === "^") {
+            console.log('e ele');
+          }
+        }
+
+        var calculatedValue = Math.pow(7,2)
+        if (calculatedValue || calculatedValue == "0") {
+          screen.value = calculatedValue;
+        } else {
+          throw "erro";
+        }
+      } catch (e) {
+        console.error(e);
       }
-    } catch (e) {
-      console.error(e);
+        return true;
+      case "√":
+        return true;
+      case "%":
+        return true;
+
+      default:
     }
   }
 
-  //
+  var operador;
+
   function valueScreen(){
     if (checkOperator(this.value)) {
-      console.log('operador', this.value);
+      operador = this.value
       var aux = screen.value.substring(screen.value.length - 1, screen.value.length);
       if (checkOperator(aux)) {
         deletePrevious()
@@ -94,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
       case "/":
         return true;
-      case "x²":
+      case "^":
         return true;
       case "√":
         return true;
