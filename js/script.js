@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
       try{
 
         var char = [];
-        
+
         //Percorrendo o elemento e separando por CHAR
         for (var i = 0 ; i < screen.value.length; i++){
           var res = screen.value.charAt([i]);
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     if (this.value) {
-      screen.value += this.value;
+      screen.value += this.value + ' ';
     }
   }
 
@@ -159,21 +159,28 @@ document.addEventListener("DOMContentLoaded", function () {
   function checkOperator(value){
     switch (value) {
       case "+":
-        return true;
+        return "+";
       case "-":
-        return true;
+        return "-";
       case "*":
-        return true;
+        return "*";
       case "/":
+<<<<<<< HEAD
         return true;
       case "^":
         return true;
+=======
+        return "/";
+      case "^":
+        return "exp";
+>>>>>>> dc39843ab2bbd5a66d661927c2774205b8de9a37
       case "√":
-        return true;
+        return "raiz";
       case "%":
-        return true;
+        return "percent";
 
       default:
+        return false;
 
     }
   }
