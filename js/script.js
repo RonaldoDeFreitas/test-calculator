@@ -91,37 +91,62 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return true;
       case "^":
-      try{
+        try{
 
-        var char = [];
+          var char = [];
 
-        //Percorrendo o elemento e separando por CHAR
-        for (var iSplit = 0 ; iSplit < screen.value.length; iSplit++){
-          var res = screen.value.split(" ");
-          if (res[iSplit] !== " " && res[iSplit] !== undefined) {
-            console.log(res[iSplit])
-            char.push(res[iSplit])
-          }
-        }
-
-        for (var i = 0; i<char.length; i++){
-          if (char[i] === "^") {
-            var calculatedValue = Math.pow(char[0],char[2])
-            if (calculatedValue || calculatedValue == "0") {
-              screen.value = calculatedValue;
-            } else {
-              throw "erro";
+          for (var iSplit = 0 ; iSplit < screen.value.length; iSplit++){
+            var res = screen.value.split(" ");
+            if (res[iSplit] !== " " && res[iSplit] !== undefined) {
+              char.push(res[iSplit])
             }
           }
-        }
 
-        
-        
-      } catch (e) {
-        console.error(e);
-      }
+          for (var i = 0; i<char.length; i++){
+            if (char[i] === "^") {
+              var calculatedValue = Math.pow(char[0],char[2])
+              if (calculatedValue || calculatedValue == "0") {
+                screen.value = calculatedValue;
+              } else {
+                throw "erro";
+              }
+            }
+          }
+
+
+
+        } catch (e) {
+          console.error(e);
+        }
         return true;
       case "√":
+        try {
+
+          var char = [];
+
+          for (var iSplit = 0 ; iSplit < screen.value.length; iSplit++){
+            var res = screen.value.split(" ");
+            if (res[iSplit] !== " " && res[iSplit] !== undefined) {
+              char.push(res[iSplit])
+            }
+          }
+
+          for (var i = 0; i<char.length; i++){
+            if (char[i] === "√") {
+              var calculatedValue = Math.sqrt(char[2])
+              if (calculatedValue || calculatedValue == "0") {
+                screen.value = calculatedValue;
+              } else {
+                throw "erro";
+              }
+            }
+          }
+
+          console.log(char);
+
+        } catch (e) {
+            console.error(e);
+        }
         return true;
       case "%":
         return true;
