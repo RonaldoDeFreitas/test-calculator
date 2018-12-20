@@ -96,23 +96,27 @@ document.addEventListener("DOMContentLoaded", function () {
         var char = [];
 
         //Percorrendo o elemento e separando por CHAR
-        for (var i = 0 ; i < screen.value.length; i++){
-          var res = screen.value.charAt([i]);
-          char.push(res)
-        }
-        console.log(char);
-        for (var i = 0; i<char.length; i++){
-          if (char[i] === "^") {
-            console.log('e ele');
+        for (var iSplit = 0 ; iSplit < screen.value.length; iSplit++){
+          var res = screen.value.split(" ");
+          if (res[iSplit] !== " " && res[iSplit] !== undefined) {
+            console.log(res[iSplit])
+            char.push(res[iSplit])
           }
         }
 
-        var calculatedValue = Math.pow(7,2)
-        if (calculatedValue || calculatedValue == "0") {
-          screen.value = calculatedValue;
-        } else {
-          throw "erro";
+        for (var i = 0; i<char.length; i++){
+          if (char[i] === "^") {
+            var calculatedValue = Math.pow(char[0],char[2])
+            if (calculatedValue || calculatedValue == "0") {
+              screen.value = calculatedValue;
+            } else {
+              throw "erro";
+            }
+          }
         }
+
+        
+        
       } catch (e) {
         console.error(e);
       }
@@ -136,8 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
         deletePrevious()
       }
     }
-    if (this.value) {
-      screen.value += this.value + ' ';
+    if (checkOperator(this.value)) {
+      screen.value += ' ' + this.value + ' ';
+    } else {
+      screen.value += this.value;
     }
   }
 
@@ -159,25 +165,19 @@ document.addEventListener("DOMContentLoaded", function () {
   function checkOperator(value){
     switch (value) {
       case "+":
-        return "+";
+        return true;
       case "-":
-        return "-";
+        return true;
       case "*":
-        return "*";
+        return true;
       case "/":
-<<<<<<< HEAD
         return true;
       case "^":
         return true;
-=======
-        return "/";
-      case "^":
-        return "exp";
->>>>>>> dc39843ab2bbd5a66d661927c2774205b8de9a37
       case "√":
-        return "raiz";
+        return true;
       case "%":
-        return "percent";
+        return true;
 
       default:
         return false;
