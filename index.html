@@ -6,47 +6,47 @@
     <link type="text/css" rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div>
-      <table>
+    <div class="row">
+      <table cellspacing="0" class="row">
         <tr>
-          <input type="text" id="screen"  maxlength="30" readonly="readonly" />
+          <td colspan="4" class="classScreen"><input type="text" id="screen"  maxlength="30" readonly="readonly" /> </td>
         </tr>
         <tr>
-          <td><input type="button" id="clear" value="C" /></td>
+          <td colspan="4" class="classCla"><input type="button" id="clear" value="Limpar" /></td>
         </tr>
         <tr>
-          <td><input type="button" id="delete" value="<=" /></td>
-          <td><input type="button" id="expon" value="^" /></td>
-          <td><input type="button" id="square" value="√" /></td>
-          <td><input type="button" id="percent" value="%" /></td>
-        </tr>
-
-        <tr>
-          <td><input type="button" id="num1" value="1" /></td>
-          <td><input type="button" id="num2" value="2" /></td>
-          <td><input type="button" id="num3" value="3" /></td>
-          <td><input type="button" id="subtract" value="-" /></td>
+          <td class="classOp"><input type="button" id="delete" value="<" /></td>
+          <td class="classOp"><input type="button" id="expon" value="^" /></td>
+          <td class="classOp"><input type="button" id="square" value="√" /></td>
+          <td class="classOp"><input type="button" id="percent" value="%" /></td>
         </tr>
 
         <tr>
-          <td><input type="button" id="num4" value="4" /></td>
-          <td><input type="button" id="num5" value="5" /></td>
-          <td><input type="button" id="num6" value="6" /></td>
-          <td><input type="button" id="addition" value="+" /></td>
+          <td class="classNum"><input type="button" id="num1" value="1" /></td>
+          <td class="classNum"><input type="button" id="num2" value="2" /></td>
+          <td class="classNum"><input type="button" id="num3" value="3" /></td>
+          <td class="classOp"><input type="button" id="subtract" value="-" /></td>
         </tr>
 
         <tr>
-          <td><input type="button" id="num7" value="7" /></td>
-          <td><input type="button" id="num8" value="8" /></td>
-          <td><input type="button" id="num9" value="9" /></td>
-          <td><input type="button" id="division" value="/" /></td>
+          <td class="classNum"><input type="button" id="num4" value="4" /></td>
+          <td class="classNum"><input type="button" id="num5" value="5" /></td>
+          <td class="classNum"><input type="button" id="num6" value="6" /></td>
+          <td class="classOp"><input type="button" id="addition" value="+" /></td>
         </tr>
 
         <tr>
-          <td><input type="button" id="score" value="," /></td>
-          <td><input type="button" id="num0" value="0" /></td>
-          <td><input type="button" id="result" value="=" /></td>
-          <td><input type="button" id="multiply" value="*" /></td>
+          <td class="classNum"><input type="button" id="num7" value="7" /></td>
+          <td class="classNum"><input type="button" id="num8" value="8" /></td>
+          <td class="classNum"><input type="button" id="num9" value="9" /></td>
+          <td class="classOp"><input type="button" id="division" value="/" /></td>
+        </tr>
+
+        <tr>
+          <td class="classNum"><input type="button" id="score" value="," /></td>
+          <td class="classNum"><input type="button" id="num0" value="0" /></td>
+          <td class="classNum"><input type="button" id="result" value="=" /></td>
+          <td class="classOp"><input type="button" id="multiply" value="*" /></td>
         </tr>
 
       </table>

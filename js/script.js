@@ -149,6 +149,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return true;
       case "%":
+      try {
+
+        var char = [];
+
+        for (var iSplit = 0 ; iSplit < screen.value.length; iSplit++){
+          var res = screen.value.split(" ");
+          if (res[iSplit] !== " " && res[iSplit] !== undefined) {
+            char.push(res[iSplit])
+          }
+        }
+
+        console.log('char', char);
+
+        var valuePer = parseInt(char[0]);
+        var percent = parseFloat(char[2]) ;
+        var resultPercent = valuePer * (percent/100);
+        console.log(valuePer, percent, char[1]);
+        if (char[1] === "+") {
+          var calculatedValue = valuePer + resultPercent;
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          } else {
+            throw "erro";
+          }
+        }
+        if (char[1] === "-") {
+          var calculatedValue = valuePer - resultPercent;
+          if (calculatedValue || calculatedValue == "0") {
+            screen.value = calculatedValue;
+          } else {
+            throw "erro";
+          }
+        }
+        var calculatedValue = Math.sqrt(char[2])
+      } catch (e) {
+          console.error(e);
+      }
         return true;
 
       default:
